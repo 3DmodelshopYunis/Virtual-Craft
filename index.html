@@ -7,8 +7,8 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #e0f7ff, #ffffff);
-      color: #000;
+      background: linear-gradient(to right, #0f0f0f, #1a1a2e);
+      color: white;
       margin: 0;
       padding: 0;
       text-align: center;
@@ -24,14 +24,13 @@
       position: relative;
       background-color: transparent;
       border: 2px solid #00f;
-      padding: 20px;
+      padding: 0;
       border-radius: 12px;
       cursor: pointer;
       overflow: hidden;
       transition: 0.3s;
       width: 250px;
       height: 250px;
-      box-shadow: 0 0 5px #aaa;
     }
     .service-button img {
       width: 100%;
@@ -53,7 +52,6 @@
       background: rgba(0, 0, 0, 0.7);
       padding: 10px;
       font-weight: bold;
-      color: white;
     }
     .hidden {
       display: none;
@@ -73,9 +71,9 @@
       width: 60%;
       margin: 20px auto;
       padding: 10px;
-      background: #f0f0f0;
+      background: #222;
       border: 1px solid #ccc;
-      color: #000;
+      color: white;
       min-height: 80px;
     }
     .copy-btn {
@@ -85,7 +83,6 @@
       padding: 8px 12px;
       margin-top: 10px;
       color: white;
-      border-radius: 4px;
     }
     .whatsapp-btn {
       margin-top: 30px;
@@ -95,7 +92,6 @@
       padding: 10px 20px;
       cursor: pointer;
       font-weight: bold;
-      border-radius: 4px;
       transition: 0.3s;
     }
     .whatsapp-btn:hover {
@@ -109,11 +105,11 @@
 
   <div class="button-container">
     <div class="service-button" onclick="showSection('photo')">
-      <img src="photoshop.png" alt="Foto və Video">
+      <img src="A (2).jpg" alt="Foto və Video">
       <div class="service-title">Fotoşop və Video Editing Xidməti</div>
     </div>
     <div class="service-button" onclick="showSection('3d')">
-      <img src="3dmodeling.png" alt="3D Xidmət">
+      <img src="blog-image.png-9.jpg.webp" alt="3D Xidmət">
       <div class="service-title">3D Modeling və Animasiya Xidməti</div>
     </div>
   </div>
@@ -177,7 +173,7 @@
     }
 
     function goToWhatsApp() {
-      window.open("https://wa.me/994558716024", "_blank"); // Buraya öz nömrəni yaz!
+      window.open("https://wa.me/994558716024", "_blank"); // Burada nömrəni dəyiş
     }
   </script>
 </body>
