@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Xidmət Saytı</title>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     * {
       font-family: 'Anton', sans-serif;
     }
+
     body {
       background: linear-gradient(to right, #0f0f0f, #1a1a2e);
       color: white;
@@ -20,11 +21,13 @@
     header {
       margin-top: 30px;
     }
+
     .site-title {
       font-size: 48px;
       margin-bottom: 5px;
       text-shadow: 2px 2px 5px #000;
     }
+
     .site-subtitle {
       font-size: 20px;
       color: #aaa;
@@ -96,45 +99,68 @@
       display: block;
       margin: 5px;
       cursor: pointer;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    .output-row {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
     }
 
     .output-box {
       width: 60%;
-      margin: 20px auto;
       padding: 10px;
       background: #222;
       border: 1px solid #ccc;
       color: white;
       min-height: 80px;
       border-radius: 5px;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    .copy-btn, .whatsapp-btn {
+      height: 40px;
+      padding: 0 15px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     .copy-btn {
-      cursor: pointer;
       background-color: #444;
-      border: none;
-      padding: 8px 12px;
-      margin-top: 10px;
       color: white;
-      border-radius: 5px;
+    }
+
+    .copy-btn:hover {
+      background-color: #666;
     }
 
     .whatsapp-btn {
-      margin-top: 30px;
       background-color: green;
       color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-      border-radius: 5px;
     }
 
     .whatsapp-btn:hover {
       background-color: white;
       color: green;
       border: 2px solid green;
+    }
+
+    @media (max-width: 700px) {
+      .output-box {
+        width: 90%;
+      }
+      .output-row {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -165,10 +191,13 @@
       <label><input type="checkbox" onchange="updateText('Obyekt silmə')"> Obyekt silmə</label>
       <label><input type="checkbox" onchange="updateText('Rəng düzəlişi')"> Rəng düzəlişi</label>
     </div>
-    <textarea id="output" class="output-box" placeholder="Seçdiyin xidmətlər burada görünəcək..."></textarea><br>
-    <button class="copy-btn" onclick="copyText()">📋 Kopyala</button>
-    <br>
-    <button class="whatsapp-btn" onclick="goToWhatsApp()">WhatsApp ilə Əlaqə</button>
+    <div class="output-row">
+      <textarea id="output" class="output-box" placeholder="Seçdiyin xidmətlər burada görünəcək..."></textarea>
+      <div>
+        <button class="copy-btn" onclick="copyText()">📋 Kopyala</button><br><br>
+        <button class="whatsapp-btn" onclick="goToWhatsApp()">WhatsApp ilə Əlaqə</button>
+      </div>
+    </div>
   </div>
 
   <div id="3d" class="options-section hidden">
@@ -180,10 +209,13 @@
       <label><input type="checkbox" onchange="updateText('Render və Materiallar')"> Render və Materiallar</label>
       <label><input type="checkbox" onchange="updateText('Kamera Hərəkəti və Kadrlar')"> Kamera Hərəkəti və Kadrlar</label>
     </div>
-    <textarea id="output" class="output-box" placeholder="Seçdiyin xidmətlər burada görünəcək..."></textarea><br>
-    <button class="copy-btn" onclick="copyText()">📋 Kopyala</button>
-    <br>
-    <button class="whatsapp-btn" onclick="goToWhatsApp()">WhatsApp ilə Əlaqə</button>
+    <div class="output-row">
+      <textarea id="output" class="output-box" placeholder="Seçdiyin xidmətlər burada görünəcək..."></textarea>
+      <div>
+        <button class="copy-btn" onclick="copyText()">📋 Kopyala</button><br><br>
+        <button class="whatsapp-btn" onclick="goToWhatsApp()">WhatsApp ilə Əlaqə</button>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -215,7 +247,7 @@
     }
 
     function goToWhatsApp() {
-      window.open("https://wa.me/994XXXXXXXXX", "_blank"); // Buraya nömrəni əlavə et
+      window.open("https://wa.me/994558716024", "_blank"); // WhatsApp nömrəni buraya yaz
     }
   </script>
 </body>
