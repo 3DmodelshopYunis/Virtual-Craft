@@ -8,16 +8,14 @@
   <style>
     * {
       font-family: 'Anton', sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
     }
 
     body {
       background: linear-gradient(to right, #0f0f0f, #1a1a2e);
       color: white;
+      margin: 0;
+      padding: 0;
       text-align: center;
-      min-height: 100vh;
     }
 
     header {
@@ -26,6 +24,7 @@
 
     .site-title {
       font-size: 48px;
+      margin-bottom: 5px;
       text-shadow: 2px 2px 5px #000;
     }
 
@@ -38,30 +37,31 @@
     .button-container {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 20px;
       margin-top: 60px;
+      flex-wrap: wrap;
     }
 
     .service-button {
       position: relative;
       background-color: transparent;
       border: 2px solid #00f;
+      padding: 0;
       border-radius: 5px;
-      width: 250px;
-      height: 250px;
       cursor: pointer;
       overflow: hidden;
-      box-shadow: inset -2px -2px 4px rgba(255,255,255,0.1), inset 2px 2px 6px rgba(0,0,0,0.6);
       transition: 0.3s;
+      width: 250px;
+      height: 250px;
+      box-shadow: inset -2px -2px 4px rgba(255,255,255,0.1), inset 2px 2px 6px rgba(0,0,0,0.6);
     }
 
     .service-button img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 5px;
       transition: 0.3s;
+      border-radius: 5px;
     }
 
     .service-button:hover img {
@@ -93,7 +93,7 @@
 
     .options-section h2 {
       margin-bottom: 10px;
-      letter-spacing: 5px;
+      letter-spacing: 3px;
       font-weight: 300;
     }
 
@@ -101,49 +101,54 @@
       display: block;
       margin: 5px;
       cursor: pointer;
-      letter-spacing: 5px;
+      letter-spacing: 3px;
       font-weight: 300;
-    }
-
-    .output-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 20px;
     }
 
     .output-box {
       width: 60%;
+      margin: 20px auto 10px auto;
       padding: 10px;
       background: #222;
       border: 1px solid #ccc;
       color: white;
       min-height: 80px;
       border-radius: 5px;
+      letter-spacing: 3px;
       font-weight: 300;
-      letter-spacing: 5px;
     }
 
-    .copy-btn, .whatsapp-btn {
-      background-color: #444;
-      border: none;
-      padding: 10px 14px;
-      color: white;
-      border-radius: 5px;
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .copy-btn,
+    .whatsapp-btn {
       cursor: pointer;
-      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      border-radius: 5px;
       transition: 0.3s;
-      min-width: 100px;
+    }
+
+    .copy-btn {
+      background-color: #444;
+      color: white;
+    }
+
+    .copy-btn:hover {
+      background-color: white;
+      color: #444;
     }
 
     .whatsapp-btn {
       background-color: green;
-    }
-
-    .copy-btn:hover {
-      background-color: #666;
+      color: white;
     }
 
     .whatsapp-btn:hover {
@@ -152,6 +157,15 @@
       border: 2px solid green;
     }
 
+    @media screen and (max-width: 600px) {
+      .output-box {
+        width: 90%;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -181,12 +195,10 @@
       <label><input type="checkbox" onchange="updateText('Obyekt silmə')"> Obyekt silmə</label>
       <label><input type="checkbox" onchange="updateText('Rəng düzəlişi')"> Rəng düzəlişi</label>
     </div>
-    <div class="output-wrapper">
-      <textarea id="output" class="output-box" placeholder="Seçdiyin xidmətlər burada görünəcək..."></textarea>
-      <div>
-        <button class="copy-btn" onclick="copyText()">📋 Kopyala</button><br><br>
-        <button class="whatsapp-btn" onclick="goToWhatsApp()">WhatsApp ilə Əlaqə</button>
-      </div>
+    <textarea id="output" class="output-box" placeholder="Seçdiyin xidmətlər burada görünəcək..."></textarea>
+    <div class="button-row">
+      <button class="copy-btn" onclick="copyText()">📋 Kopyala</button>
+      <button class="whatsapp-btn" onclick="goToWhatsApp()">WhatsApp ilə Əlaqə</button>
     </div>
   </div>
 
@@ -199,12 +211,10 @@
       <label><input type="checkbox" onchange="updateText('Render və Materiallar')"> Render və Materiallar</label>
       <label><input type="checkbox" onchange="updateText('Kamera Hərəkəti və Kadrlar')"> Kamera Hərəkəti və Kadrlar</label>
     </div>
-    <div class="output-wrapper">
-      <textarea id="output" class="output-box" placeholder="Seçdiyin xidmətlər burada görünəcək..."></textarea>
-      <div>
-        <button class="copy-btn" onclick="copyText()">📋 Kopyala</button><br><br>
-        <button class="whatsapp-btn" onclick="goToWhatsApp()">WhatsApp ilə Əlaqə</button>
-      </div>
+    <textarea id="output" class="output-box" placeholder="Seçdiyin xidmətlər burada görünəcək..."></textarea>
+    <div class="button-row">
+      <button class="copy-btn" onclick="copyText()">📋 Kopyala</button>
+      <button class="whatsapp-btn" onclick="goToWhatsApp()">WhatsApp ilə Əlaqə</button>
     </div>
   </div>
 
@@ -237,7 +247,7 @@
     }
 
     function goToWhatsApp() {
-      window.open("https://wa.me/994XXXXXXXXX", "_blank"); // Buraya nömrəni əlavə et
+      window.open("https://wa.me/994558716024", "_blank"); // Buraya nömrəni yaz
     }
   </script>
 </body>
