@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xidmət Saytı</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 100px;
+    }
+    .service-button {
+      position: relative;
+      background-color: transparent;
+      border: 2px solid #00f;
+      padding: 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: 0.3s;
+      width: 250px;
+      height: 250px;
+    }
+    .service-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+    .service-button:hover img {
+      transform: scale(1.1);
+    }
+    .service-button:hover {
+      box-shadow: 0 0 20px 5px #00f;
+    }
+    .service-title {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      font-weight: bold;
+    }
+    .hidden {
+      display: none;
+    }
+    .options-section {
+      margin-top: 50px;
+    }
+    .options-section h2 {
+      margin-bottom: 10px;
+    }
+    .checkbox-group label {
+      display: block;
+      margin: 5px;
+      cursor: pointer;
+    }
+    .output-box {
+      width: 60%;
+      margin: 20px auto;
+      padding: 10px;
+      background: #222;
+      border: 1px solid #ccc;
+      color: white;
+      min-height: 80px;
+    }
+    .copy-btn {
+      cursor: pointer;
+      background-color: #444;
+      border: none;
+      padding: 8px 12px;
+      margin-top: 10px;
+      color: white;
+    }
+    .whatsapp-btn {
+      margin-top: 30px;
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background-color: white;
+      color: green;
+      border: 2px solid green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button-container">
+    <div class="service-button" onclick="showSection('photo')">
+      <img src="photoshop.png" alt="Foto və Video">
+      <div class="service-title">Fotoşop və Video Editing Xidməti</div>
+    </div>
+    <div class="service-button" onclick="showSection('3d')">
+      <img src="3dmodeling.png" alt="3D Xidmət">
+      <div class="service-title">3D Modeling və Animasiya Xidməti</div>
+    </div>
+  </div>
+
+  <div id="photo" class="options-section hidden">
+    <h2>Fotoşop Seçimləri</h2>
+    <div class="checkbox-group">
+      <label><input type="checkbox" onchange="updateText('Şəkil editlənməsi')"> Şəkil editlənməsi</label>
+      <label><input type="checkbox" onchange="updateText('Sıfırdan söz yazılması və effekti')"> Sıfırdan söz yazılması və effekti</label>
+      <label><input type="checkbox" onchange="updateText('Video editing')"> Video editing</label>
+      <label><input type="checkbox" onchange="updateText('Obyekt silmə')"> Obyekt silmə</label>
+      <label><input type="checkbox" onchange="updateText('Rəng düzəlişi')"> Rəng düzəlişi</label>
+    </div>
+    <textarea id="output" class="output-box" placeholder="Seçdiyin xidmətlər burada görünəcək..."></textarea><br>
+    <button class="copy-btn" onclick="copyText()">📋 Kopyala</button>
+    <br>
+    <button class="whatsapp-btn" onclick="goToWhatsApp()">WhatsApp ilə Əlaqə</button>
+  </div>
+
+  <div id="3d" class="options-section hidden">
+    <h2>3D Modeling və Animasiya Seçimləri</h2>
+    <div class="checkbox-group">
+      <label><input type="checkbox" onchange="updateText('3D Obyekt Hazırlanması')"> 3D Obyekt Hazırlanması</label>
+      <label><input type="checkbox" onchange="updateText('Karakter Modelləmə')"> Karakter Modelləmə</label>
+      <label><input type="checkbox" onchange="updateText('Animasiya Verilməsi')"> Animasiya Verilməsi</label>
+      <label><input type="checkbox" onchange="updateText('Render və Materiallar')"> Render və Materiallar</label>
+      <label><input type="checkbox" onchange="updateText('Kamera Hərəkəti və Kadrlar')"> Kamera Hərəkəti və Kadrlar</label>
+    </div>
+    <textarea id="output" class="output-box" placeholder="Seçdiyin xidmətlər burada görünəcək..."></textarea><br>
+    <button class="copy-btn" onclick="copyText()">📋 Kopyala</button>
+    <br>
+    <button class="whatsapp-btn" onclick="goToWhatsApp()">WhatsApp ilə Əlaqə</button>
+  </div>
+
+  <script>
+    const outputBox = document.getElementById("output");
+
+    function showSection(sectionId) {
+      document.getElementById("photo").classList.add("hidden");
+      document.getElementById("3d").classList.add("hidden");
+      document.getElementById(sectionId).classList.remove("hidden");
+      outputBox.value = "";
+      document.querySelectorAll("input[type=checkbox]").forEach(el => el.checked = false);
+    }
+
+    function updateText(service) {
+      const lines = outputBox.value.split('\n').filter(Boolean);
+      const exists = lines.includes(service);
+      if (exists) {
+        outputBox.value = lines.filter(line => line !== service).join('\n');
+      } else {
+        lines.push(service);
+        outputBox.value = lines.join('\n');
+      }
+    }
+
+    function copyText() {
+      outputBox.select();
+      document.execCommand("copy");
+      alert("Kopyalandı!");
+    }
+
+    function goToWhatsApp() {
+      window.open("https://wa.me/994XXXXXXXXX", "_blank");
+    }
+  </script>
+</body>
+</html>
